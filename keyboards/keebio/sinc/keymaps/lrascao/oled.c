@@ -42,7 +42,6 @@ bool oled_task_user(void) {
         case _RAISE:
             oled_write_P(PSTR("Raise"), false);
             break;
-        default:
     }
 
     // Host Keyboard LED Status
