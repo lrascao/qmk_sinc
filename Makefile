@@ -12,5 +12,13 @@ ifeq ($(QMK_FIRMWARE_ROOT),)
     $(error Cannot determine qmk_firmware location. `qmk config -ro user.qmk_home` is not set)
 endif
 
-%:
-	+$(MAKE) -C $(QMK_FIRMWARE_ROOT) $(MAKECMDGOALS) QMK_USERSPACE=$(QMK_USERSPACE)
+# %:
+# 	+$(MAKE) -C $(QMK_FIRMWARE_ROOT) $(MAKECMDGOALS) QMK_USERSPACE=$(QMK_USERSPACE)
+
+all: compile
+
+compile:
+	qmk compile -kb keebio/sinc/rev2 -km lrascao
+
+flash:
+	qmk flash -kb keebio/sinc -km lrascao
